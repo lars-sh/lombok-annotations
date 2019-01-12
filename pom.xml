@@ -76,6 +76,7 @@
 				<directory>${project.basedir}</directory>
 				<targetPath>META-INF</targetPath>
 				<includes>
+					<include>CHANGELOG.md</include>
 					<include>LICENSE.txt</include>
 					<include>README.md</include>
 				</includes>
