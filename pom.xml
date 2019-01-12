@@ -50,6 +50,8 @@
 		<maven.compiler.failOnWarning>true</maven.compiler.failOnWarning>
 		<maven.compiler.source>1.6</maven.compiler.source>
 		<maven.compiler.target>1.6</maven.compiler.target>
+
+		<lombok.version>1.18.4</lombok.version>
 	</properties>
 
 	<distributionManagement>
@@ -171,6 +173,11 @@
 					<artifactId>versions-maven-plugin</artifactId>
 					<version>2.7</version>
 				</plugin>
+				<plugin>
+					<groupId>org.sonatype.plugins</groupId>
+					<artifactId>nexus-staging-maven-plugin</artifactId>
+					<version>1.6.8</version>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 
@@ -188,7 +195,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<artifact>org.projectlombok:lombok:${project.version}:jar:sources</artifact>
+					<artifact>org.projectlombok:lombok:${lombok.version}:jar:sources</artifact>
 					<includes>
 						/lombok/experimental/Accessors.java,
 						/lombok/experimental/Delegate.java,
@@ -290,18 +297,6 @@
 						</goals>
 						<configuration>
 							<failOnWarning>true</failOnWarning>
-							<ignoredUnusedDeclaredDependencies>
-								<!-- Provided -->
-								<ignoredUnusedDeclaredDependency>de.lars-sh:lombok-annotations:jar:${lombok.version}</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>com.github.spotbugs:spotbugs-annotations:${spotbugs.version}</ignoredUnusedDeclaredDependency>
-
-								<!-- Test -->
-								<ignoredUnusedDeclaredDependency>org.jooq:joor-java-8:jar:${joor.version}</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>org.junit.jupiter:junit-jupiter-api:jar:${junit.version}</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>org.junit.jupiter:junit-jupiter-engine:jar:${junit.version}</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>org.junit.platform:junit-platform-runner:jar:${junit.platform.version}</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>org.mockito:mockito-core:jar:${mockito.version}</ignoredUnusedDeclaredDependency>
-							</ignoredUnusedDeclaredDependencies>
 						</configuration>
 					</execution>
 				</executions>
@@ -323,7 +318,6 @@
 			<plugin>
 				<groupId>org.sonatype.plugins</groupId>
 				<artifactId>nexus-staging-maven-plugin</artifactId>
-				<version>1.6.8</version>
 				<extensions>true</extensions>
 				<configuration>
 					<serverId>sonatype-nexus-staging</serverId>
