@@ -12,7 +12,7 @@ Download at TODO
 
 <a name="1.18.4"></a>
 
-## [1.18.4](https://github.com/lars-sh/lombok-annotations/commit/8f7f0f67c7c9780858d9308c259aa4489dfc71af) (2018-12-10)
+## [1.18.4](https://github.com/lars-sh/lombok-annotations/commit/8f7f0f67c7c9780858d9308c259aa4489dfc71af) (2018-11-22)
 
 Download at [Maven Search](https://search.maven.org/artifact/de.lars-sh/lombok-annotations/1.18.4/jar)
 
