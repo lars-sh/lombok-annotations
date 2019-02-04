@@ -87,14 +87,6 @@
 			<plugins>
 				<!-- Maven -->
 				<plugin>
-					<artifactId>maven-antrun-plugin</artifactId>
-					<version>1.8</version>
-				</plugin>
-				<plugin>
-					<artifactId>maven-assembly-plugin</artifactId>
-					<version>3.1.0</version>
-				</plugin>
-				<plugin>
 					<artifactId>maven-clean-plugin</artifactId>
 					<version>3.1.0</version>
 				</plugin>
@@ -143,10 +135,6 @@
 					<version>3.1.0</version>
 				</plugin>
 				<plugin>
-					<artifactId>maven-shade-plugin</artifactId>
-					<version>3.2.0</version>
-				</plugin>
-				<plugin>
 					<artifactId>maven-site-plugin</artifactId>
 					<version>3.7.1</version>
 				</plugin>
@@ -188,7 +176,6 @@
 				<artifactId>maven-dependency-plugin</artifactId>
 				<executions>
 					<execution>
-						<?m2e execute onConfiguration?>
 						<phase>generate-sources</phase>
 						<goals>
 							<goal>unpack</goal>
@@ -286,21 +273,6 @@
 				<configuration>
 					<failOnError>false</failOnError>
 				</configuration>
-			</plugin>
-
-			<!-- Check for un/used dependencies -->
-			<plugin>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<executions>
-					<execution>
-						<goals>
-							<goal>analyze-only</goal>
-						</goals>
-						<configuration>
-							<failOnWarning>true</failOnWarning>
-						</configuration>
-					</execution>
-				</executions>
 			</plugin>
 
 			<!-- Sign packages -->
