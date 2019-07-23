@@ -12,6 +12,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.6</maven.compiler.source>
 		<maven.compiler.target>1.6</maven.compiler.target>
+
+		<lombok-maven-plugin.version>1.18.4.0</lombok-maven-plugin.version>
 	</properties>
 
 	<dependencies>
@@ -28,7 +30,7 @@
 			<plugin>
 				<groupId>org.projectlombok</groupId>
 				<artifactId>lombok-maven-plugin</artifactId>
-				<version>1.18.4.0</version>
+				<version>${lombok-maven-plugin.version}</version>
 				<executions>
 					<execution>
 						<goals>
