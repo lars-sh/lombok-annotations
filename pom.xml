@@ -35,7 +35,7 @@
 	</issueManagement>
 	<ciManagement>
 		<system>Travis</system>
-		<url>https://travis-ci.org/lars-sh/lombok-annotations</url>
+		<url>https://travis-ci.com/lars-sh/lombok-annotations</url>
 	</ciManagement>
 	<distributionManagement>
 		<snapshotRepository>
