@@ -44,7 +44,7 @@ The Java sources compiled differ from your sources and highly depend on Project 
 
 Though you might need the correct Java sources. For yourself to understand what's going on, for debugging purposes, for documentation or even for revision control.
 
-Therefore keep your Maven dependency and add the [Lombok Maven Plugin](http://awhitford.github.io/lombok.maven/lombok-maven-plugin/) to execute Delombok on your sources.
+Therefore keep your Maven dependency and add the [Lombok Maven Plugin](https://awhitford.github.io/lombok.maven/lombok-maven-plugin/) to execute Delombok on your sources.
 
 	<plugin>
 		<groupId>org.projectlombok</groupId>
