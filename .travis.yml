@@ -4,19 +4,18 @@ jdk:
   - openjdk11
 
 install: skip
-script: mvn install -Dgpg.skip=true --batch-mode --show-version --update-snapshots
+script: mvn install site -Dgpg.skip=true --batch-mode --show-version --update-snapshots
 
 cache:
   directories:
     - $HOME/.m2
 
 after_success:
-  - mkdir ./target/gh-pages
-  - cp ./README.md ./target/gh-pages/README.md
-  - cp -R ./target/apidocs ./target/gh-pages/javadoc
+  - cp ./CHANGELOG.md ./target/site/CHANGELOG.md
+  - cp ./README.md ./target/site/README.md
 deploy:
   provider: pages:git
-  local_dir: ./target/gh-pages
+  local_dir: ./target/site
   edge: true
   on:
     branch: master
