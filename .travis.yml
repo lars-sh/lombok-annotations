@@ -8,7 +8,7 @@ script: mvn install site -Dgpg.skip=true --batch-mode --show-version --update-sn
 
 cache:
   directories:
-    - $HOME/.m2
+    - $HOME/.m2/repository
 
 after_success:
   - cp ./CHANGELOG.md ./target/site/CHANGELOG.md

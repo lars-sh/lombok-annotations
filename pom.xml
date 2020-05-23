@@ -45,7 +45,7 @@
 		</snapshotRepository>
 		<repository>
 			<id>sonatype-nexus-staging</id>
-			<name>Nexus Release Repository</name>
+			<name>Sonatype Nexus Releases</name>
 			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
 		</repository>
 	</distributionManagement>
@@ -63,6 +63,8 @@
 
 		<!-- Versions: Plugins -->
 		<build-helper-maven-plugin.version>3.1.0</build-helper-maven-plugin.version>
+		<maven-antrun-plugin.version>3.0.0</maven-antrun-plugin.version>
+		<maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
 		<maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
 		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
 		<maven-dependency-plugin.version>3.1.2</maven-dependency-plugin.version>
@@ -82,6 +84,9 @@
 		<nexus-staging-maven-plugin.version>1.6.8</nexus-staging-maven-plugin.version>
 		<tidy-maven-plugin.version>1.1.0</tidy-maven-plugin.version>
 		<versions-maven-plugin.version>2.7</versions-maven-plugin.version>
+
+		<!-- Versions: Plugin Dependencies -->
+		<apache-ant.version>1.10.8</apache-ant.version>
 	</properties>
 
 	<repositories>
@@ -109,6 +114,21 @@
 		<pluginManagement>
 			<plugins>
 				<!-- Maven -->
+				<plugin>
+					<artifactId>maven-antrun-plugin</artifactId>
+					<version>${maven-antrun-plugin.version}</version>
+					<dependencies>
+						<dependency>
+							<groupId>org.apache.ant</groupId>
+							<artifactId>ant</artifactId>
+							<version>${apache-ant.version}</version>
+						</dependency>
+					</dependencies>
+				</plugin>
+				<plugin>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<version>${maven-assembly-plugin.version}</version>
+				</plugin>
 				<plugin>
 					<artifactId>maven-clean-plugin</artifactId>
 					<version>${maven-clean-plugin.version}</version>
