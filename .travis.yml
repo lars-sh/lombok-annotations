@@ -9,3 +9,15 @@ script: mvn install -Dgpg.skip=true --batch-mode --show-version --update-snapsho
 cache:
   directories:
     - $HOME/.m2
+
+after_success:
+  - mkdir ./target/gh-pages
+  - cp ./README.md ./target/gh-pages/README.md
+  - cp -R ./target/apidocs ./target/gh-pages/javadoc
+deploy:
+  provider: pages:git
+  local_dir: ./target/gh-pages
+  edge: true
+  on:
+    branch: master
+    jdk: openjdk8
