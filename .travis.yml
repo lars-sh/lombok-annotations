@@ -13,6 +13,7 @@ cache:
 after_success:
   - cp ./CHANGELOG.md ./target/site/CHANGELOG.md
   - cp ./README.md ./target/site/README.md
+  - rm ./target/site/index.html
 deploy:
   provider: pages:git
   local_dir: ./target/site
