@@ -87,7 +87,23 @@
 
 		<!-- Versions: Plugin Dependencies -->
 		<apache-ant.version>1.10.8</apache-ant.version>
+
+		<!-- Versions: Reporting Skins -->
+		<maven-fluido-skin.version>1.9</maven-fluido-skin.version>
 	</properties>
+
+	<dependencyManagement>
+		<!-- These dependency definitions should not change anything but forcing the
+			Maven Dependency Plugin to check their versions. -->
+		<dependencies>
+			<!-- Skins -->
+			<dependency>
+				<groupId>org.apache.maven.skins</groupId>
+				<artifactId>maven-fluido-skin</artifactId>
+				<version>${maven-fluido-skin.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<repositories>
 		<repository>
