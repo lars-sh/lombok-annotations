@@ -355,38 +355,21 @@
 
 	<reporting>
 		<plugins>
-			<!-- Check versions -->
+			<!-- Sources -->
+			<plugin>
+				<artifactId>maven-javadoc-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-jxr-plugin</artifactId>
+			</plugin>
+
+			<!-- Dependencies -->
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>versions-maven-plugin</artifactId>
-				<reportSets>
-					<reportSet>
-						<reports>
-							<report>dependency-updates-report</report>
-							<report>plugin-updates-report</report>
-						</reports>
-					</reportSet>
-				</reportSets>
-			</plugin>
-
-			<!-- Documentation -->
-			<plugin>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<reportSets>
-					<reportSet>
-						<reports>
-							<report>javadoc-no-fork</report>
-						</reports>
-					</reportSet>
-				</reportSets>
-				<configuration>
-					<failOnError>false</failOnError>
-				</configuration>
-			</plugin>
-
-			<!-- Cross references -->
-			<plugin>
-				<artifactId>maven-jxr-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</reporting>
