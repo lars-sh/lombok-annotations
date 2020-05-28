@@ -160,6 +160,10 @@
 				<plugin>
 					<artifactId>maven-javadoc-plugin</artifactId>
 					<version>${maven-javadoc-plugin.version}</version>
+					<configuration>
+						<failOnError>false</failOnError>
+						<quiet>true</quiet>
+					</configuration>
 				</plugin>
 				<plugin>
 					<artifactId>maven-jxr-plugin</artifactId>
@@ -214,6 +218,11 @@
 					<groupId>org.sonatype.plugins</groupId>
 					<artifactId>nexus-staging-maven-plugin</artifactId>
 					<version>${nexus-staging-maven-plugin.version}</version>
+					<configuration>
+						<serverId>sonatype-nexus-staging</serverId>
+						<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+						<autoReleaseAfterClose>true</autoReleaseAfterClose>
+					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>
@@ -227,58 +236,58 @@
 						<goals>
 							<goal>unpack</goal>
 						</goals>
+						<configuration>
+							<artifact>org.projectlombok:lombok:${lombok.version}:jar:sources</artifact>
+							<!-- 1. Search lombok sources for files containing "\s@interface\s|\sAccessLevel\s*{" -->
+							<!-- 2. Remove files inside /lombok/core, /lombok/eclipse and /lombok/javac -->
+							<includes>
+								/lombok/experimental/Accessors.java,
+								/lombok/experimental/Delegate.java,
+								/lombok/experimental/ExtensionMethod.java,
+								/lombok/experimental/FieldDefaults.java,
+								/lombok/experimental/FieldNameConstants.java,
+								/lombok/experimental/Helper.java,
+								/lombok/experimental/NonFinal.java,
+								/lombok/experimental/PackagePrivate.java,
+								/lombok/experimental/SuperBuilder.java,
+								/lombok/experimental/Tolerate.java,
+								/lombok/experimental/UtilityClass.java,
+								/lombok/experimental/var.java,
+								/lombok/experimental/Wither.java,
+								/lombok/extern/apachecommons/CommonsLog.java,
+								/lombok/extern/flogger/Flogger.java,
+								/lombok/extern/java/Log.java,
+								/lombok/extern/jbosslog/JBossLog.java,
+								/lombok/extern/log4j/Log4j.java,
+								/lombok/extern/log4j/Log4j2.java,
+								/lombok/extern/slf4j/Slf4j.java,
+								/lombok/extern/slf4j/XSlf4j.java,
+								/lombok/AccessLevel.java,
+								/lombok/AllArgsConstructor.java,
+								/lombok/Builder.java,
+								/lombok/Cleanup.java,
+								/lombok/CustomLog.java,
+								/lombok/Data.java,
+								/lombok/Delegate.java,
+								/lombok/EqualsAndHashCode.java,
+								/lombok/Generated.java,
+								/lombok/Getter.java,
+								/lombok/NoArgsConstructor.java,
+								/lombok/NonNull.java,
+								/lombok/RequiredArgsConstructor.java,
+								/lombok/Setter.java,
+								/lombok/Singular.java,
+								/lombok/SneakyThrows.java,
+								/lombok/Synchronized.java,
+								/lombok/ToString.java,
+								/lombok/val.java,
+								/lombok/Value.java,
+								/lombok/var.java,
+								/lombok/With.java
+							</includes>
+						</configuration>
 					</execution>
 				</executions>
-				<configuration>
-					<artifact>org.projectlombok:lombok:${lombok.version}:jar:sources</artifact>
-					<!-- 1. Search lombok sources for files containing "\s@interface\s|\sAccessLevel\s*{" -->
-					<!-- 2. Remove files inside /lombok/core, /lombok/eclipse and /lombok/javac -->
-					<includes>
-						/lombok/experimental/Accessors.java,
-						/lombok/experimental/Delegate.java,
-						/lombok/experimental/ExtensionMethod.java,
-						/lombok/experimental/FieldDefaults.java,
-						/lombok/experimental/FieldNameConstants.java,
-						/lombok/experimental/Helper.java,
-						/lombok/experimental/NonFinal.java,
-						/lombok/experimental/PackagePrivate.java,
-						/lombok/experimental/SuperBuilder.java,
-						/lombok/experimental/Tolerate.java,
-						/lombok/experimental/UtilityClass.java,
-						/lombok/experimental/var.java,
-						/lombok/experimental/Wither.java,
-						/lombok/extern/apachecommons/CommonsLog.java,
-						/lombok/extern/flogger/Flogger.java,
-						/lombok/extern/java/Log.java,
-						/lombok/extern/jbosslog/JBossLog.java,
-						/lombok/extern/log4j/Log4j.java,
-						/lombok/extern/log4j/Log4j2.java,
-						/lombok/extern/slf4j/Slf4j.java,
-						/lombok/extern/slf4j/XSlf4j.java,
-						/lombok/AccessLevel.java,
-						/lombok/AllArgsConstructor.java,
-						/lombok/Builder.java,
-						/lombok/Cleanup.java,
-						/lombok/CustomLog.java,
-						/lombok/Data.java,
-						/lombok/Delegate.java,
-						/lombok/EqualsAndHashCode.java,
-						/lombok/Generated.java,
-						/lombok/Getter.java,
-						/lombok/NoArgsConstructor.java,
-						/lombok/NonNull.java,
-						/lombok/RequiredArgsConstructor.java,
-						/lombok/Setter.java,
-						/lombok/Singular.java,
-						/lombok/SneakyThrows.java,
-						/lombok/Synchronized.java,
-						/lombok/ToString.java,
-						/lombok/val.java,
-						/lombok/Value.java,
-						/lombok/var.java,
-						/lombok/With.java
-					</includes>
-				</configuration>
 			</plugin>
 
 			<!-- Add extracted files to sources -->
@@ -321,10 +330,6 @@
 						</goals>
 					</execution>
 				</executions>
-				<configuration>
-					<failOnError>false</failOnError>
-					<quiet>true</quiet>
-				</configuration>
 			</plugin>
 
 			<!-- Sign packages -->
@@ -344,11 +349,6 @@
 				<groupId>org.sonatype.plugins</groupId>
 				<artifactId>nexus-staging-maven-plugin</artifactId>
 				<extensions>true</extensions>
-				<configuration>
-					<serverId>sonatype-nexus-staging</serverId>
-					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
-					<autoReleaseAfterClose>true</autoReleaseAfterClose>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>
