@@ -6,26 +6,28 @@ This project packages the annotations of [Project Lombok](https://projectlombok.
 ## Getting started
 Lombok Annotations are meant to be used in conjunction with Delombok and **without** Project Lombok.
 
-	<dependency>
-		<groupId>de.lars-sh</groupId>
-		<artifactId>lombok-annotations</artifactId>
-		<version><!-- TODO --></version>
-		<scope>provided</scope>
-	</dependency>
+```XML
+<dependency>
+	<groupId>de.lars-sh</groupId>
+	<artifactId>lombok-annotations</artifactId>
+	<version><!-- TODO --></version>
+	<scope>provided</scope>
+</dependency>
 
-	<plugin>
-		<groupId>org.projectlombok</groupId>
-		<artifactId>lombok-maven-plugin</artifactId>
-		<version><!-- TODO --></version>
-		<executions>
-			<execution>
-				<goals>
-					<goal>delombok</goal>
-					<goal>testDelombok</goal>
-				</goals>
-			</execution>
-		</executions>
-	</plugin>
+<plugin>
+	<groupId>org.projectlombok</groupId>
+	<artifactId>lombok-maven-plugin</artifactId>
+	<version><!-- TODO --></version>
+	<executions>
+		<execution>
+			<goals>
+				<goal>delombok</goal>
+				<goal>testDelombok</goal>
+			</goals>
+		</execution>
+	</executions>
+</plugin>
+```
 
 ## Rationale
 
@@ -34,12 +36,14 @@ Project Lombok can be used by adding its dependency at compile time.
 
 Here's how the Maven dependency looks like:
 
-	<dependency>
-		<groupId>org.projectlombok</groupId>
-		<artifactId>lombok</artifactId>
-		<version><!-- TODO --></version>
-		<scope>provided</scope>
-	</dependency>
+```XML
+<dependency>
+	<groupId>org.projectlombok</groupId>
+	<artifactId>lombok</artifactId>
+	<version><!-- TODO --></version>
+	<scope>provided</scope>
+</dependency>
+```
 
 ### You can further improve this
 The Java sources compiled differ from your sources and highly depend on Project Lomboks version and *magic*.
@@ -48,19 +52,21 @@ Though you might need the correct Java sources. For yourself to understand what'
 
 Therefore keep your Maven dependency and add the [Lombok Maven Plugin](https://awhitford.github.io/lombok.maven/lombok-maven-plugin/) to execute Delombok on your sources.
 
-	<plugin>
-		<groupId>org.projectlombok</groupId>
-		<artifactId>lombok-maven-plugin</artifactId>
-		<version><!-- TODO --></version>
-		<executions>
-			<execution>
-				<goals>
-					<goal>delombok</goal>
-					<goal>testDelombok</goal>
-				</goals>
-			</execution>
-		</executions>
-	</plugin>
+```XML
+<plugin>
+	<groupId>org.projectlombok</groupId>
+	<artifactId>lombok-maven-plugin</artifactId>
+	<version><!-- TODO --></version>
+	<executions>
+		<execution>
+			<goals>
+				<goal>delombok</goal>
+				<goal>testDelombok</goal>
+			</goals>
+		</execution>
+	</executions>
+</plugin>
+```
 
 The plugin runs Delombok on your sources, places the resulting Java sources at `target/generated-sources/delombok` and tells Maven to compile those.
 
