@@ -18,7 +18,7 @@ script: |
   
   echo ""
   echo "[INFO] Checking for Maven warnings and errors..."
-  mvnout=`cat mvnout.txt | grep --perl-regexp "(?i)\\[(ERR|WARN)"
+  mvnout=`cat mvnout.txt | grep --perl-regexp "(?i)\\[(ERR|WARN)"`
   
   if [ -n "${mvnout}" ]; then
     echo "[WARNING] The Maven output contains the following unknown warnings and errors:"
