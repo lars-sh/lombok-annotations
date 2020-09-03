@@ -40,8 +40,8 @@
 <a class="jxr_linenumber" name="L32" href="#L32">32</a>  <em class="jxr_javadoccomment"> * that contains a member which is annotated with {@code @Builder}.</em>
 <a class="jxr_linenumber" name="L33" href="#L33">33</a>  <em class="jxr_javadoccomment"> * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="L34" href="#L34">34</a>  <em class="jxr_javadoccomment"> * If a member is annotated, it must be either a constructor or a method. If a class is annotated,</em>
-<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <em class="jxr_javadoccomment"> * then a private constructor is generated with all fields as arguments</em>
-<a class="jxr_linenumber" name="L36" href="#L36">36</a>  <em class="jxr_javadoccomment"> * (as if {@code @AllArgsConstructor(access = AccessLevel.PRIVATE)} is present</em>
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <em class="jxr_javadoccomment"> * then a package-private constructor is generated with all fields as arguments</em>
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  <em class="jxr_javadoccomment"> * (as if {@code @AllArgsConstructor(access = AccessLevel.PACKAGE)} is present</em>
 <a class="jxr_linenumber" name="L37" href="#L37">37</a>  <em class="jxr_javadoccomment"> * on the class), and it is as if this constructor has been annotated with {@code @Builder} instead.</em>
 <a class="jxr_linenumber" name="L38" href="#L38">38</a>  <em class="jxr_javadoccomment"> * Note that this constructor is only generated if you haven't written any constructors and also haven't</em>
 <a class="jxr_linenumber" name="L39" href="#L39">39</a>  <em class="jxr_javadoccomment"> * added any explicit {@code @XArgsConstructor} annotations. In those cases, lombok will assume an all-args</em>
