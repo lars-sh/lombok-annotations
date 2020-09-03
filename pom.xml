@@ -391,4 +391,18 @@
 			</plugin>
 		</plugins>
 	</reporting>
+
+	<profiles>
+		<!-- JDK 14 and later: Source and target options 6 are no longer supported. Using 7 instead. -->
+		<profile>
+			<id>fix-jdk14-and-later</id>
+			<activation>
+				<jdk>(14,)</jdk>
+			</activation>
+			<properties>
+				<maven.compiler.source>1.7</maven.compiler.source>
+				<maven.compiler.target>1.7</maven.compiler.target>
+			</properties>
+		</profile>
+	</profiles>
 </project>
