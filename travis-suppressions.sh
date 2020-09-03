@@ -8,5 +8,7 @@ function suppressJdk11VarIsNotAnAllowedAnnotationName() {
 	fi
 }
 
+JDK_VERSION=`echo ${TRAVIS_JDK_VERSION} | grep --only-matching --perl-regexp \\\\d+`
+
 cat < /dev/stdin \
 | suppressJdk11VarIsNotAnAllowedAnnotationName
