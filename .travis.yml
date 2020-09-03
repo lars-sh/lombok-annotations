@@ -10,7 +10,7 @@ cache:
 
 install: |
   set -o errexit -o pipefail
-  mvn clean install --activate-profiles dirty,dirty-package --update-snapshots --batch-mode --show-version 2>&1 | tee mvnout.txt
+  mvn clean install --define gpg.skip=true --update-snapshots --batch-mode --show-version 2>&1 | tee mvnout.txt
 script: |
   set -o errexit -o pipefail
   mvn verify site --define gpg.skip=true --batch-mode --show-version 2>&1 | tee --append mvnout.txt
