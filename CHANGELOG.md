@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 
 Download at [Maven Search](https://search.maven.org/artifact/de.lars-sh/lombok-annotations/1.18.14/jar)
 
-* TODO: Update lombok to version 1.18.14
+* Update lombok to version 1.18.14
 
 <a name="1.18.12"></a>
 
