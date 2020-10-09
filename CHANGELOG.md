@@ -3,15 +3,15 @@ All notable changes to this project will be documented in this file.
 
 <a name="1.18.14"></a>
 
-## [1.18.14](https://github.com/lars-sh/lombok-annotations/compare/7c5d1114d3d4a25e1c704cf67e4ba3285926ebb4...master)
+## [1.18.14](https://github.com/lars-sh/lombok-annotations/compare/7c5d1114d3d4a25e1c704cf67e4ba3285926ebb4...6f353640b02e9481c38be1c36a2c94009f230ab5) (2020-10-09)
 
 Download at [Maven Search](https://search.maven.org/artifact/de.lars-sh/lombok-annotations/1.18.14/jar)
 
-* TODO: Update lombok to version 1.18.14
+* Update lombok to version 1.18.14
 
 <a name="1.18.12"></a>
 
-## [1.18.12](https://github.com/lars-sh/lombok-annotations/compare/470ef0cb483fe7f216c12d391b7c9cc4af363717...7c5d1114d3d4a25e1c704cf67e4ba3285926ebb4)
+## [1.18.12](https://github.com/lars-sh/lombok-annotations/compare/470ef0cb483fe7f216c12d391b7c9cc4af363717...7c5d1114d3d4a25e1c704cf67e4ba3285926ebb4) (2020-02-12)
 
 Download at [Maven Search](https://search.maven.org/artifact/de.lars-sh/lombok-annotations/1.18.12/jar)
 

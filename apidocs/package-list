@@ -2,6 +2,7 @@ lombok
 lombok.experimental
 lombok.extern.apachecommons
 lombok.extern.flogger
+lombok.extern.jackson
 lombok.extern.java
 lombok.extern.jbosslog
 lombok.extern.log4j
