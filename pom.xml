@@ -88,7 +88,7 @@
 		<versions-maven-plugin.version>2.8.1</versions-maven-plugin.version>
 
 		<!-- Versions: Plugin Dependencies -->
-		<apache-ant.version>1.10.8</apache-ant.version>
+		<apache-ant.version>1.10.9</apache-ant.version>
 
 		<!-- Versions: Reporting Skins -->
 		<maven-fluido-skin.version>1.9</maven-fluido-skin.version>
