@@ -34,34 +34,46 @@
 		<url>https://github.com/${parent-pom.github.organization}/${parent-pom.github.project}/issues</url>
 	</issueManagement>
 	<ciManagement>
-		<system>Travis</system>
-		<url>https://travis-ci.com/${parent-pom.github.organization}/${parent-pom.github.project}</url>
+		<system>GitHub Actions</system>
+		<url>https://github.com/${parent-pom.github.organization}/${parent-pom.github.project}/actions</url>
 	</ciManagement>
 	<distributionManagement>
 		<snapshotRepository>
-			<id>sonatype-nexus-snapshots</id>
-			<name>Sonatype Nexus Snapshots</name>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+			<id>github</id>
+			<name>GitHub Packages</name>
+			<url>https://maven.pkg.github.com/${parent-pom.github.organization}/${parent-pom.github.project}</url>
 		</snapshotRepository>
 		<repository>
-			<id>sonatype-nexus-staging</id>
+			<id>ossrh</id>
 			<name>Sonatype Nexus Releases</name>
 			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
 		</repository>
 	</distributionManagement>
 
 	<properties>
+		<!-- Parent POM -->
 		<parent-pom.github.organization>lars-sh</parent-pom.github.organization>
-		<parent-pom.github.project>lombok-annotations</parent-pom.github.project>
+		<parent-pom.github.project>${project.artifactId}</parent-pom.github.project>
 
+		<!-- Plugins -->
+		<dependency.failOnWarning>true</dependency.failOnWarning>
+		<enforcer.requiredMavenVersion>3.3.9</enforcer.requiredMavenVersion>
+		<jar.manifest.addClasspath>false</jar.manifest.addClasspath>
+		<jar.manifest.addDefaultImplementationEntries>true</jar.manifest.addDefaultImplementationEntries>
+		<jar.manifest.addDefaultSpecificationEntries>true</jar.manifest.addDefaultSpecificationEntries>
+		<jar.manifest.mainClass></jar.manifest.mainClass>
+		<jar.skipIfEmpty>true</jar.skipIfEmpty>
+		<javadoc.quiet>true</javadoc.quiet>
 		<maven.compiler.failOnWarning>true</maven.compiler.failOnWarning>
+		<maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
+		<maven.compiler.showWarnings>true</maven.compiler.showWarnings>
 		<maven.compiler.source>1.6</maven.compiler.source>
 		<maven.compiler.target>1.6</maven.compiler.target>
+		<maven.javadoc.failOnWarnings>true</maven.javadoc.failOnWarnings>
+		<maven.javadoc.failOnError>false</maven.javadoc.failOnError>
+		<nexus-staging.autoReleaseAfterClose>true</nexus-staging.autoReleaseAfterClose>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-		<!-- Versions: Dependencies -->
-		<lombok.version>1.18.20</lombok.version>
 
 		<!-- Versions: Plugins -->
 		<build-helper-maven-plugin.version>3.2.0</build-helper-maven-plugin.version>
@@ -71,6 +83,7 @@
 		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
 		<maven-dependency-plugin.version>3.1.2</maven-dependency-plugin.version>
 		<maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
+		<maven-enforcer-plugin.version>1.4.1</maven-enforcer-plugin.version>
 		<maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
 		<maven-install-plugin.version>2.5.2</maven-install-plugin.version>
 		<maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
@@ -89,6 +102,7 @@
 
 		<!-- Versions: Plugin Dependencies -->
 		<apache-ant.version>1.10.9</apache-ant.version>
+		<lombok.version>1.18.20</lombok.version>
 
 		<!-- Versions: Reporting Skins -->
 		<maven-fluido-skin.version>1.9</maven-fluido-skin.version>
@@ -98,6 +112,14 @@
 		<!-- These dependency definitions should not change anything but forcing the
 			Maven Dependency Plugin to check their versions. -->
 		<dependencies>
+			<!-- Plugin Dependencies -->
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>${lombok.version}</version>
+				<classifier>sources</classifier>
+			</dependency>
+
 			<!-- Skins -->
 			<dependency>
 				<groupId>org.apache.maven.skins</groupId>
@@ -164,6 +186,17 @@
 					<version>${maven-deploy-plugin.version}</version>
 				</plugin>
 				<plugin>
+					<artifactId>maven-enforcer-plugin</artifactId>
+					<version>${maven-enforcer-plugin.version}</version>
+					<configuration>
+						<rules>
+							<requireMavenVersion>
+								<version>${enforcer.requiredMavenVersion}</version>
+							</requireMavenVersion>
+						</rules>
+					</configuration>
+				</plugin>
+				<plugin>
 					<artifactId>maven-gpg-plugin</artifactId>
 					<version>${maven-gpg-plugin.version}</version>
 				</plugin>
@@ -174,13 +207,23 @@
 				<plugin>
 					<artifactId>maven-jar-plugin</artifactId>
 					<version>${maven-jar-plugin.version}</version>
+					<configuration>
+						<archive>
+							<manifest>
+								<addClasspath>${jar.manifest.addClasspath}</addClasspath>
+								<addDefaultImplementationEntries>${jar.manifest.addDefaultImplementationEntries}</addDefaultImplementationEntries>
+								<addDefaultSpecificationEntries>${jar.manifest.addDefaultSpecificationEntries}</addDefaultSpecificationEntries>
+								<mainClass>${jar.manifest.mainClass}</mainClass>
+							</manifest>
+						</archive>
+						<skipIfEmpty>${jar.skipIfEmpty}</skipIfEmpty>
+					</configuration>
 				</plugin>
 				<plugin>
 					<artifactId>maven-javadoc-plugin</artifactId>
 					<version>${maven-javadoc-plugin.version}</version>
 					<configuration>
-						<failOnError>false</failOnError>
-						<quiet>true</quiet>
+						<quiet>${javadoc.quiet}</quiet>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -237,14 +280,40 @@
 					<artifactId>nexus-staging-maven-plugin</artifactId>
 					<version>${nexus-staging-maven-plugin.version}</version>
 					<configuration>
-						<serverId>sonatype-nexus-staging</serverId>
+						<serverId>ossrh</serverId>
 						<nexusUrl>https://oss.sonatype.org/</nexusUrl>
-						<autoReleaseAfterClose>true</autoReleaseAfterClose>
+						<autoReleaseAfterClose>${nexus-staging.autoReleaseAfterClose}</autoReleaseAfterClose>
 					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>
 		<plugins>
+			<!-- Require certain maven version -->
+			<plugin>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- Check for tidied up pom.xml -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>tidy-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>validate</phase>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
 			<!-- Extract lombok sources -->
 			<plugin>
 				<artifactId>maven-dependency-plugin</artifactId>
@@ -393,7 +462,6 @@
 			</plugin>
 		</plugins>
 	</reporting>
-
 
 	<profiles>
 		<!-- Skip code checks and tests -->
