@@ -31,6 +31,11 @@ jobs:
           java-version: ${{ matrix.java-version }}
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
           gpg-passphrase: GPG_PASSPHRASE
+      - name: Set up Maven 3.2.5 for Java 1.6
+        if: ${{ matrix.java-version == '1.6' }}
+        uses: stCarolas/setup-maven@v4
+        with:
+          maven-version: 3.2.5
       - name: Clean, Build, Install
         run: |
           set -o errexit -o pipefail
