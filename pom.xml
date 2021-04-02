@@ -65,8 +65,8 @@
 		<jar.skipIfEmpty>true</jar.skipIfEmpty>
 		<javadoc.quiet>true</javadoc.quiet>
 		<maven.compiler.failOnWarning>true</maven.compiler.failOnWarning>
-		<maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
-		<maven.compiler.showWarnings>true</maven.compiler.showWarnings>
+		<maven.compiler.showDeprecation>false</maven.compiler.showDeprecation>
+		<maven.compiler.showWarnings>false</maven.compiler.showWarnings>
 		<maven.compiler.source>1.6</maven.compiler.source>
 		<maven.compiler.target>1.6</maven.compiler.target>
 		<maven.javadoc.failOnWarnings>true</maven.javadoc.failOnWarnings>
