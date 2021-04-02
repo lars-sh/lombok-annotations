@@ -36,12 +36,9 @@ jobs:
         uses: stCarolas/setup-maven@v4
         with:
           maven-version: 3.2.5
-      - name: Set up TLSv1.2 for Java 1.6
-        if: ${{ matrix.java-version == '1.6' }}
-        uses: allenevans/set-env@v2.0.0
-        with:
-          MAVEN_OPTS: -Dhttps.protocols=TLSv1.2
       - name: Clean, Build, Install
+        with:
+          MAVEN_OPTS: '-Dhttps.protocols=TLSv1.2'
         run: |
           set -o errexit -o pipefail
           mvn clean install --activate-profiles dirty,dirty-package --update-snapshots --batch-mode --show-version 2>&1 | tee mvnout.txt
