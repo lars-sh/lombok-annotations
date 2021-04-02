@@ -483,12 +483,12 @@
 			</properties>
 		</profile>
 
-		<!-- JDK 7 and later: Do not show warnings as the bootstrap class path
+		<!-- JDK 1.7 and later: Do not show warnings as the bootstrap class path
 			does not match the current sources version. -->
 		<profile>
 			<id>fix-jdk7-and-later</id>
 			<activation>
-				<jdk>(7,)</jdk>
+				<jdk>(1.7,)</jdk>
 			</activation>
 			<properties>
 				<maven.compiler.showDeprecation>false</maven.compiler.showDeprecation>
