@@ -11,7 +11,7 @@ jobs:
       matrix:
         # Supported versions as of https://en.wikipedia.org/wiki/Java_version_history
         java-version:
-          - 1.6
+          - 1.7 # Lombok still supports Java 1.6, but Maven Central requires TLSv1.2
           - 1.8
           - 11
           - 16
@@ -31,14 +31,7 @@ jobs:
           java-version: ${{ matrix.java-version }}
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
           gpg-passphrase: GPG_PASSPHRASE
-      - name: Set up Maven 3.2.5 for Java 1.6
-        if: ${{ matrix.java-version == '1.6' }}
-        uses: stCarolas/setup-maven@v4
-        with:
-          maven-version: 3.2.5
       - name: Clean, Build, Install
-        env:
-          MAVEN_OPTS: -Dhttps.protocols=TLSv1.2
         run: |
           set -o errexit -o pipefail
           mvn clean install --activate-profiles dirty,dirty-package --update-snapshots --batch-mode --show-version 2>&1 | tee mvnout.txt
@@ -58,7 +51,7 @@ jobs:
             echo "::set-output name=is-snapshot::false"
           fi
       - name: Test, Verify, Deploy
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && matrix.java-version == '1.6' && steps.version.outputs.is-snapshot == 'true' }}
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && matrix.java-version == '1.7' && steps.version.outputs.is-snapshot == 'true' }}
         run: |
           set -o errexit -o pipefail
           mvn deploy site --batch-mode --show-version 2>&1 | tee --append mvnout.txt
@@ -67,7 +60,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
       - name: Test, Verify
-        if: ${{ github.event_name != 'push' || github.ref != 'refs/heads/master' || matrix.java-version != '1.6' || steps.version.outputs.is-snapshot != 'true' }}
+        if: ${{ github.event_name != 'push' || github.ref != 'refs/heads/master' || matrix.java-version != '1.7' || steps.version.outputs.is-snapshot != 'true' }}
         run: |
           set -o errexit -o pipefail
           mvn verify site --define gpg.skip=true --batch-mode --show-version 2>&1 | tee --append mvnout.txt
@@ -89,13 +82,13 @@ jobs:
         env:
           JDK_VERSION: ${{ matrix.java-version }}
       - name: Prepare Site
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && matrix.java-version == '1.6' && steps.version.outputs.is-snapshot == 'true' }}
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && matrix.java-version == '1.7' && steps.version.outputs.is-snapshot == 'true' }}
         run: |
           rm ./target/site/index.html
           cp ./CHANGELOG.md ./target/site/CHANGELOG.md
           cp ./README.md ./target/site/README.md
       - name: Deploy Site
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && matrix.java-version == '1.6' && steps.version.outputs.is-snapshot == 'true' }}
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && matrix.java-version == '1.7' && steps.version.outputs.is-snapshot == 'true' }}
         uses: peaceiris/actions-gh-pages@v3.8.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
