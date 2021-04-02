@@ -37,8 +37,8 @@ jobs:
         with:
           maven-version: 3.2.5
       - name: Clean, Build, Install
-        with:
-          MAVEN_OPTS: '-Dhttps.protocols=TLSv1.2'
+        env:
+          MAVEN_OPTS: -Dhttps.protocols=TLSv1.2
         run: |
           set -o errexit -o pipefail
           mvn clean install --activate-profiles dirty,dirty-package --update-snapshots --batch-mode --show-version 2>&1 | tee mvnout.txt
