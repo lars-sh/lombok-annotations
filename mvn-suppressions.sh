@@ -9,22 +9,11 @@ function suppressJdk11AndLaterVarIsNotAnAllowedAnnotationName() {
 	fi
 }
 
-# JDK14: The JavaDoc creation logs errors about missing "javadoc-bundle-option" folders.
-function suppressJdk14And15Warnings() {
-	if [ "${JDK_VERSION}" -eq 14 ] || [ "${JDK_VERSION}" -eq 15 ]; then
-		cat < /dev/stdin \
-		| grep --invert-match --perl-regexp "^\\[ERROR\\] Error fetching link: .*[/\\\\]target[/\\\\]javadoc-bundle-options\\. Ignored it\\.$"
-	else
-		cat < /dev/stdin
-	fi
-}
-
 JDK_VERSION=`echo "$1" | grep --only-matching --perl-regexp "^(1\\\\.)?\\\\K\\\\d+$"`
 if [ -z "${JDK_VERSION}" ]; then
 	echo "[ERROR] The given JDK version is empty. Given value: \"$1\"" >&2
 	false
 else
 	cat < /dev/stdin \
-	| suppressJdk11AndLaterVarIsNotAnAllowedAnnotationName \
-	| suppressJdk14And15Warnings
+	| suppressJdk11AndLaterVarIsNotAnAllowedAnnotationName
 fi
