@@ -1,5 +1,5 @@
-# JDK11: 'var' is not an allowed annotation name
-function suppressJdk11VarIsNotAnAllowedAnnotationName() {
+# JDK11 and later: 'var' is not an allowed annotation name
+function suppressJdk11AndLaterVarIsNotAnAllowedAnnotationName() {
 	if [ ${JDK_VERSION} -ge 11 ]; then
 		cat < /dev/stdin \
 		| grep --invert-match --perl-regexp "^\\[ERROR\\] Error while creating javadoc report: $"
@@ -10,8 +10,8 @@ function suppressJdk11VarIsNotAnAllowedAnnotationName() {
 }
 
 # JDK14: The JavaDoc creation logs errors about missing "javadoc-bundle-option" folders.
-function suppressJdk14Warnings() {
-	if [ ${JDK_VERSION} -eq 14 ]; then
+function suppressJdk14And15Warnings() {
+	if [ "${JDK_VERSION}" -eq 14 ] || [ "${JDK_VERSION}" -eq 15 ]; then
 		cat < /dev/stdin \
 		| grep --invert-match --perl-regexp "^\\[ERROR\\] Error fetching link: .*[/\\\\]target[/\\\\]javadoc-bundle-options\\. Ignored it\\.$"
 	else
@@ -19,8 +19,12 @@ function suppressJdk14Warnings() {
 	fi
 }
 
-JDK_VERSION=`echo ${TRAVIS_JDK_VERSION} | grep --only-matching --perl-regexp \\\\d+`
-
-cat < /dev/stdin \
-| suppressJdk11VarIsNotAnAllowedAnnotationName \
-| suppressJdk14Warnings
+JDK_VERSION=`echo "$1" | grep --only-matching --perl-regexp "^(1\\\\.)?\\\\K\\\\d+$"`
+if [ -z "${JDK_VERSION}" ]; then
+	echo "[ERROR] The given JDK version is empty. Given value: \"$1\"" >&2
+	false
+else
+	cat < /dev/stdin \
+	| suppressJdk11AndLaterVarIsNotAnAllowedAnnotationName \
+	| suppressJdk14And15Warnings
+fi

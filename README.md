@@ -71,7 +71,7 @@ Therefore keep your Maven dependency and add the [Lombok Maven Plugin](https://a
 The plugin runs Delombok on your sources, places the resulting Java sources at `target/generated-sources/delombok` and tells Maven to compile those.
 
 ### Fine until here, right?
-**No!** The Lombok Maven Plugin is alright, but as Project Lombok is still part of your dependencies, it registers itself when compiling starts and processes the generated sources a second time.
+**No!** The Lombok Maven Plugin is alright, but as Project Lombok is still part of your dependencies, it registers itself when compiling and processes the generated sources a second time.
 
 That reduces compiling performance and might modify your sources even further. Take a look at `demos/demo-2-delombok-and-lombok` as an example:
 
