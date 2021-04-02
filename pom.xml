@@ -488,7 +488,7 @@
 		<profile>
 			<id>fix-jdk7-and-later</id>
 			<activation>
-				<jdk>(1.7,)</jdk>
+				<jdk>[1.7,)</jdk>
 			</activation>
 			<properties>
 				<maven.compiler.showDeprecation>false</maven.compiler.showDeprecation>
@@ -527,7 +527,7 @@
 		<profile>
 			<id>fix-jdk14-and-later</id>
 			<activation>
-				<jdk>(14,)</jdk>
+				<jdk>[14,)</jdk>
 			</activation>
 			<properties>
 				<maven.compiler.source>1.7</maven.compiler.source>
