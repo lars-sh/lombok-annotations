@@ -99,6 +99,7 @@
 		<versions-maven-plugin.version>2.8.1</versions-maven-plugin.version>
 
 		<!-- Versions: Plugin Dependencies -->
+		<lifecycle-mapping.version>1.0.0</lifecycle-mapping.version>
 		<lombok.version>edge-SNAPSHOT</lombok.version>
 
 		<!-- Versions: Reporting Skins -->
@@ -526,6 +527,51 @@
 			<properties>
 				<doclint>all,-missing</doclint>
 			</properties>
+		</profile>
+
+		<!-- Eclipse only -->
+		<profile>
+			<id>eclipse-only</id>
+			<activation>
+				<property>
+					<name>m2e.version</name>
+				</property>
+			</activation>
+			<properties>
+				<!-- Eclipse 2019-03 (version 4.11) and lower fail on newer Maven JAR Plugin versions. -->
+				<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+			</properties>
+			<build>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<groupId>org.eclipse.m2e</groupId>
+							<artifactId>lifecycle-mapping</artifactId>
+							<version>${lifecycle-mapping.version}</version>
+							<configuration>
+								<lifecycleMappingMetadata>
+									<pluginExecutions>
+										<!-- Ignore tidy goals -->
+										<pluginExecution>
+											<pluginExecutionFilter>
+												<groupId>org.codehaus.mojo</groupId>
+												<artifactId>tidy-maven-plugin</artifactId>
+												<versionRange>${tidy-maven-plugin.version}</versionRange>
+												<goals>
+													<goal>check</goal>
+												</goals>
+											</pluginExecutionFilter>
+											<action>
+												<ignore />
+											</action>
+										</pluginExecution>
+									</pluginExecutions>
+								</lifecycleMappingMetadata>
+							</configuration>
+						</plugin>
+					</plugins>
+				</pluginManagement>
+			</build>
 		</profile>
 	</profiles>
 </project>
