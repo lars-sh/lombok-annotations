@@ -525,17 +525,6 @@
 			</properties>
 		</profile>
 
-		<!-- JDK 15, Maven Javadoc Plugin: Logs warnings on missing JavaDoc comments inside generated code -->
-		<profile>
-			<id>fix-jdk15</id>
-			<activation>
-				<jdk>15</jdk>
-			</activation>
-			<properties>
-				<doclint>all,-missing</doclint>
-			</properties>
-		</profile>
-
 		<!-- Eclipse only -->
 		<profile>
 			<id>eclipse-only</id>
