@@ -433,6 +433,13 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-jxr-plugin</artifactId>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>jxr-no-fork</report>
+						</reports>
+					</reportSet>
+				</reportSets>
 			</plugin>
 
 			<!-- Dependencies -->
