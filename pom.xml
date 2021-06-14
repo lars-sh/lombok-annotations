@@ -56,7 +56,6 @@
 		<parent-pom.github.project>${project.artifactId}</parent-pom.github.project>
 
 		<!-- Plugins -->
-		<dependency.failOnWarning>true</dependency.failOnWarning>
 		<enforcer.requiredMavenVersion>3.3.9</enforcer.requiredMavenVersion>
 		<jar.manifest.addClasspath>false</jar.manifest.addClasspath>
 		<jar.manifest.addDefaultImplementationEntries>true</jar.manifest.addDefaultImplementationEntries>
