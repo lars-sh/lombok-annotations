@@ -318,6 +318,7 @@
 								/lombok/experimental/Helper.java,
 								/lombok/experimental/NonFinal.java,
 								/lombok/experimental/PackagePrivate.java,
+								/lombok/experimental/StandardException.java,
 								/lombok/experimental/SuperBuilder.java,
 								/lombok/experimental/Tolerate.java,
 								/lombok/experimental/UtilityClass.java,
