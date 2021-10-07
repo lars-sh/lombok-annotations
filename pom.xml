@@ -99,7 +99,7 @@
 
 		<!-- Versions: Plugin Dependencies -->
 		<lifecycle-mapping.version>1.0.0</lifecycle-mapping.version>
-		<lombok.version>edge-SNAPSHOT</lombok.version>
+		<lombok.version>1.18.22</lombok.version>
 
 		<!-- Versions: Reporting Skins -->
 		<maven-fluido-skin.version>1.9</maven-fluido-skin.version>
@@ -318,6 +318,7 @@
 								/lombok/experimental/Helper.java,
 								/lombok/experimental/NonFinal.java,
 								/lombok/experimental/PackagePrivate.java,
+								/lombok/experimental/StandardException.java,
 								/lombok/experimental/SuperBuilder.java,
 								/lombok/experimental/Tolerate.java,
 								/lombok/experimental/UtilityClass.java,
