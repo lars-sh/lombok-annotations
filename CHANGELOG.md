@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 
 <a name="1.18.24"></a>
 
-## [1.18.24](https://github.com/lars-sh/lombok-annotations/compare/06b04b2a5067324d6d13b52dc1ab320fa3eb3947...master)
+## [1.18.24](https://github.com/lars-sh/lombok-annotations/compare/06b04b2a5067324d6d13b52dc1ab320fa3eb3947...master) (2022-04-19)
 
 Download at [Maven Search](https://search.maven.org/artifact/de.lars-sh/lombok-annotations/1.18.24/jar)
 
