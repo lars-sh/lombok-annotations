@@ -1,6 +1,14 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+<a name="1.18.30"></a>
+
+## [1.18.30-SNAPSHOT](https://github.com/lars-sh/lombok-annotations/compare/2e98204d72cbf3b218b08f2545a7488f500c41ee...master)
+
+Download at [Maven Search](https://search.maven.org/artifact/de.lars-sh/lombok-annotations/1.18.30/jar)
+
+* TODO: Update lombok to version 1.18.30
+
 <a name="1.18.28"></a>
 
 ## [1.18.28](https://github.com/lars-sh/lombok-annotations/compare/2d18035b13d6b08d9c01a3e5910a394f1f115c91...2e98204d72cbf3b218b08f2545a7488f500c41ee) (2023-05-25)
