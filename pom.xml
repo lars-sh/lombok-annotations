@@ -95,7 +95,7 @@
 		<maven-surefire-report-plugin.version>3.5.2</maven-surefire-report-plugin.version>
 		<nexus-staging-maven-plugin.version>1.7.0</nexus-staging-maven-plugin.version>
 		<tidy-maven-plugin.version>1.3.0</tidy-maven-plugin.version>
-		<versions-maven-plugin.version>2.17.1</versions-maven-plugin.version>
+		<versions-maven-plugin.version>2.18.0</versions-maven-plugin.version>
 
 		<!-- Versions: Plugin Dependencies -->
 		<lifecycle-mapping.version>1.0.0</lifecycle-mapping.version>
