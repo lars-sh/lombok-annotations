@@ -1,0 +1,1 @@
+/opt/hostedtoolcache/Java_Adopt_jdk/8.0.452-9/x64/jre/../bin/javadoc -J-Duser.language= -J-Duser.country= @options @packages
