@@ -19,6 +19,7 @@
 'Lombok Annotations 1.18.40-SNAPSHOT API'
 -linkoffline
 'https://docs.oracle.com/javase/6/docs/api' '/home/runner/work/lombok-annotations/lombok-annotations/target/javadoc-bundle-options'
+-quiet
 -use
 -version
 -windowtitle
