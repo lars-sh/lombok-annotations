@@ -19,11 +19,11 @@ jobs:
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
           gpg-passphrase: GPG_PASSPHRASE
           server-id: central
-          server-username: OSSRH_USERNAME
-          server-password: OSSRH_TOKEN
+          server-username: CENTRAL_PUBLISHING_USERNAME
+          server-password: CENTRAL_PUBLISHING_TOKEN
       - name: Deploy
         run: mvn clean deploy --batch-mode --show-version
         env:
+          CENTRAL_PUBLISHING_USERNAME: ${{ secrets.CENTRAL_PUBLISHING_USERNAME }}
+          CENTRAL_PUBLISHING_TOKEN: ${{ secrets.CENTRAL_PUBLISHING_TOKEN }}
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-          OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-          OSSRH_TOKEN: ${{ secrets.OSSRH_TOKEN }}
