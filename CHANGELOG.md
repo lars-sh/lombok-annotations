@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 
 <a name="1.18.40"></a>
 
-## [1.18.40](https://github.com/lars-sh/lombok-annotations/compare/a77ddb31a9071f2ed6a6768ebf5b2c9d4f2a8b29...6b42408d37ded807be698c4e28bfb4e24ad9607d)
+## [1.18.40](https://github.com/lars-sh/lombok-annotations/compare/a77ddb31a9071f2ed6a6768ebf5b2c9d4f2a8b29...886d620ccc92a6afd4534a9ddabc8942ebe4d39d)
 
 Download at [Maven Search](https://search.maven.org/artifact/de.lars-sh/lombok-annotations/1.18.40/jar)
 
