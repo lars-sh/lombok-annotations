@@ -256,7 +256,6 @@
 					<groupId>org.sonatype.central</groupId>
 					<artifactId>central-publishing-maven-plugin</artifactId>
 					<version>${central-publishing-maven-plugin.version}</version>
-					<extensions>true</extensions>
 					<configuration>
 						<autoPublish>true</autoPublish>
 						<waitUntil>published</waitUntil>
@@ -414,8 +413,8 @@
 
 			<!-- Deployment -->
 			<plugin>
-				<groupId>org.sonatype.plugins</groupId>
-				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<groupId>org.sonatype.central</groupId>
+				<artifactId>central-publishing-maven-plugin</artifactId>
 				<extensions>true</extensions>
 			</plugin>
 		</plugins>
