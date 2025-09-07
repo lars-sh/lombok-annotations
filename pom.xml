@@ -65,7 +65,6 @@
 		<maven.compiler.target>1.6</maven.compiler.target>
 		<maven.javadoc.failOnWarnings>true</maven.javadoc.failOnWarnings>
 		<maven.javadoc.failOnError>false</maven.javadoc.failOnError>
-		<nexus-staging.autoReleaseAfterClose>true</nexus-staging.autoReleaseAfterClose>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
