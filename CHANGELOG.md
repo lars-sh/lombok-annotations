@@ -11,7 +11,7 @@ Download at [Maven Search](https://search.maven.org/artifact/de.lars-sh/lombok-a
 
 <a name="1.18.40"></a>
 
-## [1.18.40](https://github.com/lars-sh/lombok-annotations/compare/a77ddb31a9071f2ed6a6768ebf5b2c9d4f2a8b29...ad0a54400340def6319d7bd2257e73821e2dc670)
+## [1.18.40](https://github.com/lars-sh/lombok-annotations/compare/a77ddb31a9071f2ed6a6768ebf5b2c9d4f2a8b29...ad0a54400340def6319d7bd2257e73821e2dc670) (2025-09-07)
 
 Download at [Maven Search](https://search.maven.org/artifact/de.lars-sh/lombok-annotations/1.18.40/jar)
 
@@ -19,7 +19,7 @@ Download at [Maven Search](https://search.maven.org/artifact/de.lars-sh/lombok-a
 
 <a name="1.18.38"></a>
 
-## [1.18.38](https://github.com/lars-sh/lombok-annotations/compare/7cb53b11d03c46d26b7a756cc7db8d16e64b79bf...a77ddb31a9071f2ed6a6768ebf5b2c9d4f2a8b29)
+## [1.18.38](https://github.com/lars-sh/lombok-annotations/compare/7cb53b11d03c46d26b7a756cc7db8d16e64b79bf...a77ddb31a9071f2ed6a6768ebf5b2c9d4f2a8b29) (2025-04-01)
 
 Download at [Maven Search](https://search.maven.org/artifact/de.lars-sh/lombok-annotations/1.18.38/jar)
 
