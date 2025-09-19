@@ -7,7 +7,7 @@
 <body>
 <div id="overview"><a href="../../apidocs/lombok/AccessLevel.html">View Javadoc</a></div><pre>
 <a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">/*</em>
-<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * Copyright (C) 2009 The Project Lombok Authors.</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * Copyright (C) 2009-2025 The Project Lombok Authors.</em>
 <a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment"> * </em>
 <a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_comment"> * Permission is hereby granted, free of charge, to any person obtaining a copy</em>
 <a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment"> * of this software and associated documentation files (the "Software"), to deal</em>
@@ -33,10 +33,27 @@
 <a class="jxr_linenumber" name="L25" href="#L25">25</a>  <em class="jxr_javadoccomment"> * Represents an AccessLevel. Used e.g. to specify the access level for generated methods and fields.</em>
 <a class="jxr_linenumber" name="L26" href="#L26">26</a>  <em class="jxr_javadoccomment"> */</em>
 <a class="jxr_linenumber" name="L27" href="#L27">27</a>  <strong class="jxr_keyword">public</strong> enum <a name="AccessLevel" href="../lombok/AccessLevel.html#AccessLevel">AccessLevel</a> {
-<a class="jxr_linenumber" name="L28" href="#L28">28</a>  	PUBLIC, MODULE, PROTECTED, PACKAGE, PRIVATE,
-<a class="jxr_linenumber" name="L29" href="#L29">29</a>  	<em class="jxr_javadoccomment">/** Represents not generating anything or the complete lack of a method. */</em>
-<a class="jxr_linenumber" name="L30" href="#L30">30</a>  	NONE;
-<a class="jxr_linenumber" name="L31" href="#L31">31</a>  }
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  	<em class="jxr_javadoccomment">/** Represents the {@code public} access level. */</em>
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  	PUBLIC,
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  	
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  	<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  <em class="jxr_javadoccomment">	 * Acts exactly like {@code PACKAGE} - the package private access level.</em>
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <em class="jxr_javadoccomment">	 * @deprecated This value was created at a time when a module-level access keyword was planned as a way of being prepared for the future. But that's not the direction java went in; a 'module access level' is not likely to ever exist. This enum acts like {@code PACKAGE} in every way.</em>
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  	@Deprecated MODULE,
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  	
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  	<em class="jxr_javadoccomment">/** Represents the {@code protected} access level (any code in the same package as well as any subtype). */</em>
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  	PROTECTED,
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  	
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  	<em class="jxr_javadoccomment">/** Represents the default access level: package private. (any code in the same package). */</em>
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  	PACKAGE,
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  	
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  	<em class="jxr_javadoccomment">/** Represents the {@code private} access level. */</em>
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>  	PRIVATE,
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>  	
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  	<em class="jxr_javadoccomment">/** Represents not generating anything or the complete lack of a method. */</em>
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  	NONE;
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>  }
 </pre>
 <hr/>
 <div id="footer">© 2025</div>

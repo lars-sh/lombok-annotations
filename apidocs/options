@@ -16,11 +16,11 @@
 -docencoding
 'UTF-8'
 -doctitle
-'Lombok Annotations 1.18.42-SNAPSHOT API'
+'Lombok Annotations 1.18.44-SNAPSHOT API'
 -linkoffline
 'https://docs.oracle.com/javase/6/docs/api' '/home/runner/work/lombok-annotations/lombok-annotations/target/javadoc-bundle-options'
 -quiet
 -use
 -version
 -windowtitle
-'Lombok Annotations 1.18.42-SNAPSHOT API'
+'Lombok Annotations 1.18.44-SNAPSHOT API'
