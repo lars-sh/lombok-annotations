@@ -93,7 +93,7 @@
 
 		<!-- Versions: Plugin Dependencies -->
 		<lifecycle-mapping.version>1.0.0</lifecycle-mapping.version>
-		<lombok.version>edge-SNAPSHOT</lombok.version>
+		<lombok.version>1.18.36</lombok.version>
 
 		<!-- Versions: Reporting Skins -->
 		<maven-fluido-skin.version>2.1.0</maven-fluido-skin.version>
