@@ -89,7 +89,7 @@
 		<maven-surefire-plugin.version>3.5.4</maven-surefire-plugin.version>
 		<maven-surefire-report-plugin.version>3.5.4</maven-surefire-report-plugin.version>
 		<tidy-maven-plugin.version>1.4.0</tidy-maven-plugin.version>
-		<versions-maven-plugin.version>2.20.0</versions-maven-plugin.version>
+		<versions-maven-plugin.version>2.20.1</versions-maven-plugin.version>
 
 		<!-- Versions: Plugin Dependencies -->
 		<lifecycle-mapping.version>1.0.0</lifecycle-mapping.version>
