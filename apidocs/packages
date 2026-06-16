@@ -1,9 +1,9 @@
 lombok
 lombok.experimental
 lombok.extern.flogger
-lombok.extern.jbosslog
-lombok.extern.apachecommons
-lombok.extern.log4j
 lombok.extern.jackson
+lombok.extern.apachecommons
+lombok.extern.jbosslog
 lombok.extern.slf4j
 lombok.extern.java
+lombok.extern.log4j
