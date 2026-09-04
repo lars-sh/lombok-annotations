@@ -1,1 +1,1 @@
-/opt/hostedtoolcache/Java_Adopt_jdk/8.0.492-9/x64/jre/../bin/javadoc -J-Duser.language= -J-Duser.country= @options @packages
+/usr/lib/jvm/temurin-8-jdk-amd64/jre/../bin/javadoc -J-Duser.language= -J-Duser.country= @options @packages
